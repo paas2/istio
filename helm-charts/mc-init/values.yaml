@@ -1,0 +1,12 @@
+# meshID: default
+# multiCluster:
+#   clusterName: default
+# network: default
+
+# resources: 
+#   limits:
+#     cpu: 100m
+#     memory: 256Mi
+#   requests:
+#     cpu: 100m
+#     memory: 256Mi
