@@ -4,11 +4,14 @@ spec:
   components:
     ingressGateways:
     - name: istio-eastwestgateway
-      enabled: true
+      enabled: {{ .Values.ingressGateways.eastwestgatewayEnabled }}
       label:
         istio: eastwestgateway
         app: istio-eastwestgateway
         topology.istio.io/network: {{ .Values.network }}
+    - name: ingressgateway
+      enabled: {{ .Values.ingressGateways.ingressgatewayEnabled }}
+          
       k8s:
         env:
           # sni-dnat adds the clusters required for AUTO_PASSTHROUGH mode

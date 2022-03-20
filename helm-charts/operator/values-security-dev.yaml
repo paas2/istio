@@ -1,7 +1,7 @@
-meshID: default
+meshID: paas-mesh
 multiCluster:
-  clusterName: default
-network: default
+  clusterName: security
+network: security-network
 
 resources: 
   limits:
@@ -12,6 +12,5 @@ resources:
     memory: 256Mi
 
 ingressGateways:
-  eastwestgatewayEnabled: false
-  ingressgatewayEnabled: false
-      
+  eastwestgatewayEnabled: true
+  ingressgatewayEnabled: true
