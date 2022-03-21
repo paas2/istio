@@ -1,4 +1,7 @@
 apiVersion: install.istio.io/v1alpha1
+metadata:
+ name: istio-controlplane
+ namespace: istio-system
 kind: IstioOperator
 spec:
   components:
