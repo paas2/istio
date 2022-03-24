@@ -12,8 +12,6 @@ spec:
         istio: eastwestgateway
         app: istio-eastwestgateway
         topology.istio.io/network: {{ .Values.network }}
-    - name: ingressgateway
-      enabled: {{ .Values.ingressGateways.ingressgatewayEnabled }}
           
       k8s:
         env:
