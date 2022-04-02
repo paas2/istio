@@ -5,3 +5,4 @@
 {{- define "mesh.id" -}}
 {{- default "default" .Values.global.clusterName }}-mesh
 {{- end }}
+
