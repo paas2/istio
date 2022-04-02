@@ -7,11 +7,11 @@ spec:
   components:
     ingressGateways:
     - name: istio-eastwestgateway
-      enabled: {{ .Values.ingressGateways.eastwestgatewayEnabled }}
+      enabled: true
       label:
         istio: eastwestgateway
         app: istio-eastwestgateway
-        topology.istio.io/network: {{ .Values.network }}
+        topology.istio.io/network: {{ include "network.name" . }}
           
       k8s:
         env:
@@ -20,7 +20,7 @@ spec:
             value: "sni-dnat"
           # traffic through this gateway should be routed inside the network
           - name: ISTIO_META_REQUESTED_NETWORK_VIEW
-            value: {{ .Values.network }}
+            value: {{ include "network.name" . }}
         resources:
           requests:
             cpu: {{.Values.resources.requests.cpu }}
@@ -42,7 +42,7 @@ spec:
   values:
     global:
       # Multi-cluster properties
-      meshID: {{ .Values.meshID }}
+      meshID: {{ include "mesh.id" . }}
       multiCluster:
-        clusterName: {{ .Values.multiCluster.clusterName }}
-      network: {{ .Values.network }}
+        clusterName: {{ .Values.global.clusterName }}
+      network: {{ include "network.name" . }}
