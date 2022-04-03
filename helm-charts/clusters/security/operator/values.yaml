@@ -1,3 +1,7 @@
+global:
+  clusterName: security
+  env: dev
+  
 resources: 
   limits:
     cpu: 100m
