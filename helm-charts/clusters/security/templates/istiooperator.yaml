@@ -1,0 +1,48 @@
+apiVersion: install.istio.io/v1alpha1
+metadata:
+ name: istio-controlplane
+ namespace: istio-system
+kind: IstioOperator
+spec:
+  components:
+    ingressGateways:
+    - name: istio-eastwestgateway
+      enabled: true
+      label:
+        istio: eastwestgateway
+        app: istio-eastwestgateway
+        topology.istio.io/network: {{ include "network.name" . }}
+          
+      k8s:
+        env:
+          # sni-dnat adds the clusters required for AUTO_PASSTHROUGH mode
+          - name: ISTIO_META_ROUTER_MODE
+            value: "sni-dnat"
+          # traffic through this gateway should be routed inside the network
+          - name: ISTIO_META_REQUESTED_NETWORK_VIEW
+            value: {{ include "network.name" . }}
+        resources:
+          requests:
+            cpu: {{.Values.resources.requests.cpu }}
+            memory: {{.Values.resources.requests.memory }}
+        service:
+          ports:
+            - name: status-port
+              port: 15021
+              targetPort: 15021
+            - name: mtls
+              port: 15443
+              targetPort: 15443
+            - name: tcp-istiod
+              port: 15012
+              targetPort: 15012
+            - name: tcp-webhook
+              port: 15017
+              targetPort: 15017
+  values:
+    global:
+      # Multi-cluster properties
+      meshID: {{ include "mesh.id" . }}
+      multiCluster:
+        clusterName: {{ .Values.global.clusterName }}
+      network: {{ include "network.name" . }}
