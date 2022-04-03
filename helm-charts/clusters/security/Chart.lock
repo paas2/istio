@@ -1,0 +1,6 @@
+dependencies:
+- name: istio-cluster-base
+  repository: file://../base
+  version: 1.0.0
+digest: sha256:58336381295bae1c324b6edfff43c4c8b272660fcf95e5715642c8f108717fab
+generated: "2022-04-03T22:49:04.764354+04:00"
