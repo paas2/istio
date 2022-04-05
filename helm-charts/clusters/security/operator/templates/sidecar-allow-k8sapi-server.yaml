@@ -5,6 +5,5 @@ metadata:
   namespace: istio-system
 spec:
   egress:
-  - port:
-      number: 8443
-    bind: 192.168.99.106
+  - hosts:
+    - "192.168.99.106"    
