@@ -1,0 +1,10 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Sidecar
+metadata:
+  name: allow-k8s-api-server
+  namespace: istio-system
+spec:
+  egress:
+  - port:
+      number: 8443
+    bind: 192.168.99.106
