@@ -1,6 +1,5 @@
 global:
   clusterName: bwb
-  meshId: sahab2
   env: dev
   
 resources: 

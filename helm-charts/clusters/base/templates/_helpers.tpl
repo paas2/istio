@@ -3,6 +3,6 @@
 {{- end }}
 
 {{- define "mesh.id" -}}
-{{- default "default" .Values.global.meshId }}
+{{- default "sahab2" .Values.global.meshId }}
 {{- end }}
 

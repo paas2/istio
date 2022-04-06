@@ -1,6 +1,5 @@
 global:
   clusterName: security
-  meshId: sahab2
   env: dev
   
 resources: 
