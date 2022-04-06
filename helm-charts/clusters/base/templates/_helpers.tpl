@@ -3,6 +3,6 @@
 {{- end }}
 
 {{- define "mesh.id" -}}
-{{- default "default" .Values.global.clusterName }}-mesh
+{{- default "default" .Values.global.meshId }}
 {{- end }}
 
