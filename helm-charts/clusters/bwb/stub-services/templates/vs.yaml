@@ -9,9 +9,9 @@ spec:
   - vault
   http:
   - name: "vault-v1"  
-  - match:
-    - uri:
-        exact: /vault  
+  # - match:
+  #   - uri:
+  #       exact: /vault  
     route:
     - destination:
         host: vault.vault.svc.cluster.local
