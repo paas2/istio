@@ -3,4 +3,4 @@ dependencies:
   repository: file://../../base
   version: 1.0.0
 digest: sha256:0c58c55bd1863687d6374b9eed4171c7ca1ae6257028dc789d9a8cde8e98196f
-generated: "2022-04-06T22:26:38.600068+04:00"
+generated: "2022-04-11T21:26:04.067879+04:00"
