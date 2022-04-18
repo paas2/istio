@@ -13,7 +13,7 @@ spec:
     - destination:
         host: argocd-server.argocd.svc.cluster.local
         port:
-          number: 443        
+          number: 80        
         # subset: v2  
   # http:
   # - match:
