@@ -4,7 +4,7 @@ metadata:
   name: argocd
 spec:
   hosts:
-  - "*"
+  - "argocd.sahab2.com"
   gateways:
   - argocd
   http:
