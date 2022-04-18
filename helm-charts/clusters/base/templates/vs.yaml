@@ -8,7 +8,7 @@ spec:
   gateways:
   - argocd
   http:
-  - name: "argocd-v1"
+  - name: "argocd-443"
     route:
     - destination:
         host: argocd-server.argocd.svc.cluster.local
