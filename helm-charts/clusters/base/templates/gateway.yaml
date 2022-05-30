@@ -1,21 +1,26 @@
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
-  name: argocd
+  name: argocd-gateway
 spec:
   selector:
-    istio: ingressgateway # use istio default controller
+    istio: ingressgateway
   servers:
-  - port:
-      number: 443
-      name: http-443
-      protocol: HTTP
-    hosts:
-    - "*"      
-  - port:
-      number: 80
-      name: http-80
-      protocol: HTTP      
-    hosts:
-    - "*"
-
+    - hosts:
+        - "*"
+      port:
+        name: https
+        number: 443
+        protocol: HTTPS
+      # tls:
+      #   mode: SIMPLE
+      #   # argo-cert is a tls secret in istio-system namespace, containing a valid TLS cert for the domain name argo.example.com
+      #   credentialName: argo-cert
+    - hosts:
+        - "*"
+      port:
+        name: http
+        number: 80
+        protocol: HTTP
+      tls:
+        httpsRedirect: true
